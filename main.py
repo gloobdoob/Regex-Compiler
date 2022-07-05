@@ -27,14 +27,7 @@ def string_checker1(s):
 
 #( ( 101 + ( 111 )* + 100 ) + ( 1 + 0 + 11 )* )   ( 111 + 000 + 101 )
 def string_checker2(s):
-    count = 0
-    if s[:3] == '101' or s[:3] == '100' or s[:3] == '111' or s[0] == '1' or s[0] == '0' or s[:2] == '11':
-        count = count + 1
-
-    if s[-3:] == '111' or s[-3:] == '000' or s[-3:] == '101' or s[-1] == '1' or s[-1] == '0':
-        count = count + 1
-
-    if count == 2:
+    if any(x in s for x in ['111', '000', '101']):
         return 'valid'
     else:
         return 'not valid'
@@ -52,7 +45,7 @@ def main():
         print(validity)
 
     elif num == 2:
-        validity = string_checker1(str_c)
+        validity = string_checker2(str_c)
         print(validity)
 
 

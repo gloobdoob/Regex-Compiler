@@ -29,25 +29,40 @@ def string_checker1(s):
 
 #( ( 101 + ( 111 )* + 100 ) + ( 1 + 0 + 11 )* )   ( 111 + 000 + 101 )
 def string_checker2(s):
-    count = 0
-    if s[:3] == '101' or s[:3] == '100' or s[:3] == '111':
-        count = count + 1
-    elif s[:2] == '11':
-        count = count + 1
-    elif s[0] == '0':
-        count = count + 1
-
-    if s[-3:] == '111' or s[-3:] == '000' or s[-3:] == '101':
-        count = count + 1
-    elif len(s) > 3:
-        if s[-1] == '1' or s[-1] == '0':
-            count = count + 1
-
-
-    if count == 2:
+    if any(x in s for x in ['111', '000', '101']):
         return 'valid'
     else:
         return 'not valid'
+    # if s[:3] == '101' or s[:3] == '100' or s[:3] == '111':
+    #     count = count + 1
+    #     if any(x in s[3:] for x in ['111', '000', ' 101']):
+    #         count = count + 1
+    #
+    #
+    # elif s[:2] == '11':
+    #     count = count + 1
+    #     if any(x in s[2:] for x in ['111', '000', ' 101']):
+    #         count = count + 1
+    #
+    # elif s[0] == '0' or s[0] == '1':
+    #     count = count + 1
+    #     if any(x in s[1:] for x in ['111', '000', ' 101']):
+    #         count = count + 1
+
+
+
+
+    # if s[-3:] == '111' or s[-3:] == '000' or s[-3:] == '101':
+    #     count = count + 1
+    # elif len(s) > 3:
+    #     if s[-1] == '1' or s[-1] == '0':
+    #         count = count + 1
+
+    #
+    # if count == 2:
+    #     return 'valid'
+    # else:
+    #     return 'not valid'
 
 def pyregtest(reg, strr):
     pattern = re.compile(reg)
