@@ -19,18 +19,18 @@ def string_checker1(s):
             count = count + 1
 
     if count == 3:
-        return 'valid'
+        return f'{s}valid'
     else:
-        return 'not valid'
+        return f'{s}invalid'
 
 #( ( 101 + ( 111 )* + 100 ) + ( 1 + 0 + 11 )* ) ( 1 + 0 + 01 )* ( 111 + 000 + 101 ) ( 1 + 0 )*
 
 #( ( 101 + ( 111 )* + 100 ) + ( 1 + 0 + 11 )* )   ( 111 + 000 + 101 )
 def string_checker2(s):
     if any(x in s for x in ['111', '000', '101']):
-        return 'valid'
+        return f'{s}valid'
     else:
-        return 'not valid'
+        return f'{s}invalid'
 
 def random_string(length, letters):
     return ''.join(random.choice(letters) for i in range(length))
